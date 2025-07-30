@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedant Tripathi - Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas class="matrix-bg"></canvas>
+
+  <header>
+    <h1>Vedant Tripathi</h1>
+    <p class="subtitle">Computer Science Student & Aspiring Software Engineer</p>
+    <a href="#contact" class="cta-button">Hire Me</a>
+    <div class="social-icons">
+      <a href="https://github.com/" target="_blank" title="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+      </a>
+      <a href="https://linkedin.com/" target="_blank" title="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+      </a>
+      <a href="mailto:your.email@example.com" title="Email">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png"/>
+      </a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a dedicated computer science student with a passion for elegant and efficient software solutions.
+      My journey in tech is driven by curiosity and a love for solving complex challenges. I thrive in collaborative
+      settings and enjoy contributing to open-source and AI research.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="card">
+        <h3>Neural Network Visualizer</h3>
+        <p>Interactive tool to visualize and understand the inner workings of neural networks.</p>
+      </div>
+      <div class="card">
+        <h3>E-commerce Platform</h3>
+        <p>Full-stack solution with product management, secure authentication, and payments.</p>
+      </div>
+      <div class="card">
+        <h3>Algorithm Challenge Arena</h3>
+        <p>Compete on algorithmic problems in real-time against peers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div class="card">JavaScript</div>
+      <div class="card">Python</div>
+      <div class="card">React</div>
+      <div class="card">Node.js</div>
+      <div class="card">Git</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>I'm open to new opportunities. Feel free to reach out!</p>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" />
+      <input type="email" name="email" placeholder="Your Email" />
+      <textarea name="message" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Vedant Tripathi. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('section', {
+      delay: 200,
+      duration: 1200,
+      distance: '50px',
+      origin: 'bottom',
+      reset: false
+    });
+  </script>
+</body>
+</html>
