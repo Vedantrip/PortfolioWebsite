@@ -1,0 +1,306 @@
+:root {
+    --bg: #0b0b0b;          /* Deep Black */
+    --card-bg: #141414;     /* Card Background */
+    --text: #ffffff;
+    --neon: #D2FF00;        /* Lando Lime */
+    --dim: #444444;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide default cursor */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* --- CUSTOM CURSOR --- */
+.cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--neon);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5vw;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(11, 11, 11, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--text) !important;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--neon);
+}
+
+/* --- HERO SECTION (CENTERED) --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Layer 2: Text (Foreground) */
+.hero-content {
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Legibility shadow */
+    pointer-events: none; /* Let clicks pass to image */
+}
+
+.hero-title {
+    font-size: 11vw;
+    line-height: 0.8;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+    mix-blend-mode: normal;
+}
+
+.hero-title span { display: block; }
+
+.outline {
+    -webkit-text-stroke: 1px var(--text);
+    color: transparent;
+}
+
+@media (min-width: 1000px) {
+    .outline { -webkit-text-stroke: 2px var(--text); }
+}
+
+.hero-sub {
+    margin-top: 5vh;
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    pointer-events: auto; /* Re-enable text selection for sub */
+}
+
+/* Layer 1: Image (Background) */
+.hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 600px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto; /* Enable hover on image area */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    
+    /* DEFAULT: Dark & Grayscale */
+    filter: grayscale(100%) contrast(1.2) brightness(0.4);
+    opacity: 0.8;
+    
+    /* Mask bottom to blend into black */
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* HOVER EFFECT: Wake Up */
+.hero:hover .hero-image img {
+    filter: grayscale(0%) contrast(1) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 100px rgba(210, 255, 0, 0.15);
+}
+
+/* --- MARQUEE --- */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: var(--neon);
+    padding: 15px 0;
+    transform: rotate(-2deg) scale(1.05);
+    margin: 50px 0;
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee-content span {
+    color: #000;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-right: 50px;
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- EXPERIENCE --- */
+.experience { padding: 5vw; }
+
+.section-title {
+    font-size: 4rem;
+    margin-bottom: 40px;
+    color: var(--dim);
+    font-family: var(--font-head);
+    text-transform: uppercase;
+}
+
+.exp-item {
+    border-top: 1px solid #333;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+.exp-item:hover { background: #111; }
+
+.exp-date {
+    font-family: 'Courier New', monospace;
+    color: var(--neon);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.exp-details h3 { font-size: 2rem; margin-bottom: 5px; }
+.exp-details h4 { color: #888; font-weight: 400; margin-bottom: 15px; }
+
+/* --- BENTO GRID --- */
+.work { padding: 5vw; }
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 350px);
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    border-color: var(--neon);
+    transform: translateY(-5px);
+}
+
+.item-large { grid-column: span 2; }
+.item-neon { background: var(--neon); color: black; }
+.item-neon p, .item-neon li { color: #333; }
+
+.card-tags span {
+    font-size: 0.7rem;
+    border: 1px solid #444;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    color: #aaa;
+}
+
+.email-btn {
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-head);
+    font-weight: 800;
+}
+
+.email-btn:hover { color: var(--neon); }
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-image {
+        width: 100%;
+        max-width: 100%;
+        top: 45%; 
+    }
+    
+    .hero-image img {
+        filter: grayscale(100%) brightness(0.6); 
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    }
+
+    .hero-title {
+        font-size: 14vw; 
+    }
+
+    .bento-grid { display: flex; flex-direction: column; }
+    .exp-item { flex-direction: column; }
+    .menu { gap: 15px; }
+    .menu a { font-size: 0.7rem; }
+}
